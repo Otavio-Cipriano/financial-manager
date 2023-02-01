@@ -1,0 +1,17 @@
+{
+    "name": "home/pedrada",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Otávio Cipriano",
+            "email": "otavio.b.cipriano@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
