@@ -11,8 +11,10 @@ class UserSessionService{
 
     function __construct()
     {
+       if(session_status() ==  PHP_SESSION_NONE){
         $this->session = new Session(3600, true);
         $this->session->start();
+       }
     }
 
     public function start(User $user){

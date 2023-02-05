@@ -4,13 +4,13 @@ namespace app\core;
 
 class Router{
 
-    public array $routes;
+   
 
     protected Request $request;
 
     protected Response $response;
-
-    protected  $controller;
+    
+    public array $routes = [];
 
     function __construct()
     {
@@ -18,40 +18,41 @@ class Router{
         $this->response = new Response;
     }
 
-    public function get(string $path, $callback){
-        $this->routes['get'][$path] = $callback;
+    public function get(string $path, ...$callback){
+        $this->routes[$path]['get'] = $callback;
+        return $this;
     }
 
-    public function post($path, $callback){
-        $this->routes['post'][$path] = $callback;
-    }
-
-    public function middleware($path, $callback){
-        $this->routes['middleware'][$path] = $callback;
+    public function post($path, ...$callback){
+        $this->routes[$path]['post'] = $callback;
         return $this;
     }
 
     public function resolve(){
         $path = $this->request->path;
         $method = $this->request->method;
-        $callback = $this->routes[$method][$path] ?? false;
+        $callbacks = $this->routes[$path][$method] ?? false;
 
-        if($callback === false){
+        if($callbacks === false){
             echo "Está Rota não existe";
             return;
         }
 
-        if(is_string($callback)){
-            echo $callback;
-            return;
-        }
+        foreach ($callbacks as $key => $callback) {
+            if(is_string($callback)){
+                echo $callback;
+                return;
+            }
+    
+            if(is_array($callback)){
+                $callback[0] = new $callback[0]();
+            }
+            
+            $next = call_user_func($callback, $this->request, $this->response);
 
-        if(is_array($callback)){
-            $this->controller = new $callback[0]();
-            $callback[0] = $this->controller;
+            if(!$next){
+                break;
+            }
         }
-
-        return call_user_func($callback, $this->request, $this->response);
-        
     }
 }

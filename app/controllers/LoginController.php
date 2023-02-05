@@ -49,6 +49,7 @@ class LoginController extends Controller {
         $session->start($user);
 
         $response->status(200)->send('Login: Success');
+        $response->redirect('/');
     }
 
     protected function sanitize_fields(array $post_inputs){

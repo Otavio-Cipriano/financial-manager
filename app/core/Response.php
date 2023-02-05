@@ -31,6 +31,11 @@ class Response
         return $this;
     }
 
+    public function redirect(string $url){
+        header("Location: $url");
+        return $this;
+    }
+
     public function render($view, $layout, $params = []){
         $render = new View();
         $render->render($view, $layout, $params);
