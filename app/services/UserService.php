@@ -25,8 +25,10 @@ class UserService{
         try {
             $repo = new UserRepository;
             $data = $repo->findByEmail($email);
-            $user = new User($data->name, $data->email, $data->password, $data->id);
-            return $user;
+            if($data){
+                $user = new User($data->name, $data->email, $data->password, $data->id);
+                return $user;
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

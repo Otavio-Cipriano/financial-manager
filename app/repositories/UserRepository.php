@@ -19,6 +19,7 @@ class UserRepository{
         $conn = $db->connect();
         $stmt = $conn->prepare("SELECT * FROM users WHERE email=:email");
         $stmt->execute(["email" => $email]);
-        return (object) $stmt->fetch(PDO::FETCH_ASSOC);
+        $result =  $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? (object) $result : false;
     }
 }

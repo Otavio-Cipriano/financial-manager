@@ -30,6 +30,10 @@ class UserSessionService{
         return $isLogged;
     }
 
+    public function check_validation(){
+        // $session = session_cache_expire()
+    }
+
     public function user_info(){
         $this->session = new Session();
         $user = $this->session->get_session('user');
