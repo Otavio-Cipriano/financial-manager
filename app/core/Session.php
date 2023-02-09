@@ -29,4 +29,8 @@ class Session{
     public function get_session(string $session_name){
         return $_SESSION[$session_name]?? null;
     }
+
+    public function destroy_session(){
+        session_destroy();
+    }
 }

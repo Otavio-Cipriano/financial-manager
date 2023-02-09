@@ -4,7 +4,7 @@
             <h2 class="mt-2 mb-3">Entrar</h2>
             <p class="h5 fw-normal">Bem vindo ao gerenciador financeiro</p>
         </div>
-        <form method="POST" >
+        <form method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input
@@ -40,7 +40,6 @@
 </div>
 <script>
     const form = document.querySelector('form');
-    // const 
 
     form.addEventListener('submit', async (e) =>{
         e.preventDefault();
@@ -48,8 +47,26 @@
         let formData = new FormData(form);
 
         let req = await fetch('/login', {method: 'POST', body: formData});
-        let res = await req.text();
-        console.log(res);
+
+        if(req.status === 401){
+            let data = await req.json()
+            Object.keys(data).forEach((key, index) => {
+                 showError(key, data[key][0])
+            });
+            console.log(data)  
+        }
+        if(req.status === 200){
+            let data = await req.text()
+            console.log(data)  
+
+            window.location.assign("/");
+        }
     })
 
+    function showError(field, msg){
+        const input = document.querySelector(`input[name='${field}']`)
+        input.classList.add('border-danger')
+        input.nextElementSibling.innerHTML = msg
+        input.nextElementSibling.classList.remove('d-none')
+    }
 </script>

@@ -39,4 +39,8 @@ class UserSessionService{
         $user = $this->session->get_session('user');
         return $user;
     }
+
+    public function destroy_user(){
+        $this->session->destroy_session();
+    }
 }

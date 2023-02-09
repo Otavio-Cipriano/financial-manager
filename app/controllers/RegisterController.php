@@ -30,11 +30,9 @@ class RegisterController extends Controller {
             $errors = $validation->invalidFields;
             $response->status(401)->send($errors);
             return;
-        }
+        }        
 
-        $sanitized = (object) $this->sanitized_fields($fields);
-
-        $verified_password = $this->validate_password($sanitized->password);
+        $verified_password = $this->validate_password($fields['password']);
 
         if($verified_password){
             $validation->insert_error('password', 'generic', $verified_password);
@@ -42,6 +40,15 @@ class RegisterController extends Controller {
             $response->status(401)->send($errors);
             return;
         }
+
+        if($this->check_email($fields['email'])){
+            $validation->insert_error('email', 'generic', 'Email já cadastrado');
+            $errors = $validation->invalidFields;
+            $response->status(401)->send($errors);
+            return;
+        }
+
+        $sanitized = (object) $this->sanitized_fields($fields);
 
         $user = new User($sanitized->name, $sanitized->email, password_hash($sanitized->password, PASSWORD_BCRYPT));
 
@@ -66,6 +73,12 @@ class RegisterController extends Controller {
         elseif(!preg_match('/(?=.*\W)/', $password)){
             return "É necessário no minimo um caratere especial";
         }
+    }
+
+    protected function check_email($email){
+        $user = UserService::findByEmail($email);
+        if($user) return true;
+        return false;
     }
 
     protected function sanitized_fields(array $post_inputs){
