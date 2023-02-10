@@ -10,6 +10,6 @@ class DashboardController extends Controller {
     function index(Request $request, Response $response){
         $session = new UserSessionService();
         $user = $session->user_info();
-        $response->render('index', $this->layout, );
+        $response->render('index', $this->layout, [...$user]);
     }
 }

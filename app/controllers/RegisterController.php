@@ -30,19 +30,19 @@ class RegisterController extends Controller {
             $errors = $validation->invalidFields;
             $response->status(401)->send($errors);
             return;
-        }        
-
-        $verified_password = $this->validate_password($fields['password']);
-
-        if($verified_password){
-            $validation->insert_error('password', 'generic', $verified_password);
+        }
+        
+        if($this->check_email($fields['email'])){
+            $validation->insert_error('email', 'generic', 'Email já cadastrado');
             $errors = $validation->invalidFields;
             $response->status(401)->send($errors);
             return;
         }
 
-        if($this->check_email($fields['email'])){
-            $validation->insert_error('email', 'generic', 'Email já cadastrado');
+        $verified_password = $this->validate_password($fields['password']);
+
+        if($verified_password){
+            $validation->insert_error('password', 'generic', $verified_password);
             $errors = $validation->invalidFields;
             $response->status(401)->send($errors);
             return;

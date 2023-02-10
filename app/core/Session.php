@@ -4,21 +4,15 @@ namespace app\core;
 
 class Session{
 
-    private int $lifetime;
+    private array $options;
 
-    private bool $httponly;
-
-    function __construct(int $lifetime = 3600, bool $httponly = false)
+    function __construct($options = [])
     {           
-        $this->lifetime = $lifetime;
-        $this->httponly = $httponly;
+        $this->options = $options;
     }
 
     public function start(){
-        session_set_cookie_params(
-            ['lifetime' => $this->lifetime, 
-            'httponly' => $this->httponly
-            ]);
+        session_set_cookie_params([...$this->options]);
         session_start();
     }
 

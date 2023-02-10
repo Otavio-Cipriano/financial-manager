@@ -3,7 +3,7 @@
       <div class="col-md-3 pt-3 pb-3">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-secondary" style="--bs-bg-opacity: .15; width: 100%;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <span class="fs-4">{{name}}</span>
+          <span class="fs-3">{{name}}</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -26,24 +26,72 @@
       </div>
     </div>
     <div class="col-md-9">
+      <h2 class="text-center mt-4 mb-4">
+        Mês de Referência Fev/2023
+      </h2>
+      <div class="bg-secondary row" style="height: 40px;">
+      </div>
       <div class="row mt-3">
         <div class="col-4">
-          <div class="bg-primary" style="min-height: 10px;">
-            <p>Despesas</p>
-            <p>R$ 999,99</p>
+          <div class="text-white bg-primary text-center p-2 rounded shadow-sm" style="--bs-bg-opacity: .50; min-height: 10px;">
+              <p class="fs-4 fw-semibold m-0">
+                Despesas
+              </p>
+              <p class="fs-2  fw-semibold m-0">
+                <span><i class="bi bi-box-arrow-up"></i></span>
+                R$ 999,99
+              </p>
           </div>
         </div>
         <div class="col-4">
-          <div class="bg-primary" style="min-height: 10px;">
-            <p>Lucro</p>
-            <p>R$ 999,99</p>
+          <div class="text-white bg-primary text-center p-2 rounded shadow-sm" style="--bs-bg-opacity: .50; min-height: 10px;">
+              <p class="fs-4 fw-semibold m-0">
+                Lucro
+              </p>
+              <p class="fs-2  fw-semibold m-0">
+                <i class="bi bi-box-arrow-in-down"></i>
+                R$ 999,99
+              </p>
           </div>
         </div>
         <div class="col-4">
-          <div class="bg-primary" style="min-height: 10px;">
-            <p>Balanço</p>
-            <p>R$ 999,99</p>
+          <div class="text-white bg-primary text-center p-2 rounded shadow-sm" style="--bs-bg-opacity: .50; min-height: 10px;">
+              <p class="fs-4 fw-semibold m-0">
+                Balanço
+              </p>
+              <p class="fs-2  fw-semibold m-0">
+                <i class="bi bi-arrows-collapse"></i>
+                R$ 999,99
+              </p>
           </div>
+        </div>
+      </div>
+      <div class="mt-5">
+        <h3 class="mb-3">Lançamentos</h3>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Categória</th>
+                <th scope="col">Resumo</th>
+                <th scope="col">Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10/02/2023 12:53</td>
+                <td>Despesa</td>
+                <td>Previsto</td>
+                <td>Pagamento de Conta</td>
+                <td>R$999,99</td>
+                <td><i class="bi bi-file-earmark-text"></i></td>
+                <td><i class="bi bi-pencil-square"></i></td>
+                <td><i class="bi bi-trash-fill"></i></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
