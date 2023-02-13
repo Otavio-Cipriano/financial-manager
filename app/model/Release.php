@@ -2,12 +2,24 @@
 
 namespace app\model;
 
+use DateTime;
+
+enum ReleaseType{
+    case lucro;
+    case despesa;
+}
+
+enum ReleaseCategory{
+    case previsto;
+    case extra;
+}
+
 class  Release {
 
     public int $id;
-    public string $type;
-    public string $category;
-    public string $date;
+    public ReleaseType $type;
+    public ReleaseCategory $category;
+    public DateTime $date;
     public string $briefing;
     public string $description;
 

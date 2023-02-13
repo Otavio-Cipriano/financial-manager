@@ -16,9 +16,9 @@
         </ul>
         <hr>
         <div>
-          <p class="fs-5">
-            <a href="/logout">
-              <i class="bi bi-arrow-bar-right"></i>
+          <p class="fs-5 m-0">
+            <a class="text-decoration-none" href="/logout">
+              <i class="bi bi-arrow-bar-right logout-btn"></i>
               Sair
             </a>
           </p>
@@ -26,8 +26,7 @@
       </div>
     </div>
     <div class="col-md-9">
-      <h2 class="text-center mt-4 mb-4">
-        Mês de Referência Fev/2023
+      <h2 class="text-center mt-4 mb-4 date_banner">
       </h2>
       <div class="bg-secondary row" style="height: 40px;">
       </div>
