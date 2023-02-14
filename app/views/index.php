@@ -79,16 +79,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>10/02/2023 12:53</td>
-                <td>Despesa</td>
-                <td>Previsto</td>
-                <td>Pagamento de Conta</td>
-                <td>R$999,99</td>
-                <td><i class="bi bi-file-earmark-text"></i></td>
-                <td><i class="bi bi-pencil-square"></i></td>
-                <td><i class="bi bi-trash-fill"></i></td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -96,4 +86,4 @@
     </div>
   </div>
 </div>
-<script src="/js/pages/dashboard.js"></script>
+<script src="/js/pages/dashboard.js" type="module"></script>
