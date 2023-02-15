@@ -1,7 +1,9 @@
 import createTableRow from "../DOM/createTableRow.js";
+import initTooltip from "../helpers/initTooltips.js";
 import {getReleases} from "../services/getReleases.js";
 
 function main(){
+    initTooltip();
     initDateBanner();
     loadReleases();
 }

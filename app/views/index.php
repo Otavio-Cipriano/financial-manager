@@ -67,15 +67,19 @@
       </div>
       <div class="mt-5">
         <h3 class="mb-3">Lançamentos</h3>
+        <hr class="border border-2 border-secondary mt-0 mb-4" style="margin-top: -5px !important;">
         <div class="table-responsive">
-          <table class="table table-striped table-sm">
-            <thead>
+          <table class="table table-light border border-2 table-hover table-sm">
+            <thead class="table-primary" style="--bs-table-bg: #9fc5ff;">
               <tr>
                 <th scope="col">Data</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Categória</th>
                 <th scope="col">Resumo</th>
                 <th scope="col">Valor</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
