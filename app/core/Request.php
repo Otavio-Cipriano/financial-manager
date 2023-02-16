@@ -9,6 +9,8 @@ class Request{
 
     public mixed $body;
 
+    public array $params;
+
     protected string $URI;
 
     function __construct()

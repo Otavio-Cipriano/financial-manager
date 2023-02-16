@@ -14,4 +14,11 @@ class ReleaseService{
         $releases = $releases->get_releases($offset, $limit);
         return $releases;
     }
+    public static function findById(int $id){
+        if(empty($id)) return false;
+
+        $releases = new ReleaseRepository();
+        $releases = $releases->get_by_id($id);
+        return $releases;
+    }
 }

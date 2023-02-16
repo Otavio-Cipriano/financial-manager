@@ -2,10 +2,11 @@ import createTableRow from "../DOM/createTableRow.js";
 import initTooltip from "../helpers/initTooltips.js";
 import {getReleases} from "../services/getReleases.js";
 
-function main(){
-    initTooltip();
+async function main(){
     initDateBanner();
-    loadReleases();
+    await loadReleases();
+    initTooltip();
+    handleActions();
 }
 
 function initDateBanner(){
@@ -25,6 +26,29 @@ async function loadReleases(){
         let row = createTableRow(release);
         table.insertAdjacentHTML('beforeEnd', row);
     });
+}
+
+function listenActions(){
+    const actionBtns = document.querySelectorAll('.table-action > i')
+    actionBtns.forEach(btn =>{
+        btn.addEventListener('click', () =>{
+            handleActions(dataset.name, dataset.index)
+        })
+    })
+}
+
+function handleActions(actionName, releaseId){
+    switch (actionName) {
+        case 'detail':
+            showDetail(releaseId)
+            break;
+        case 'edit':
+            editDetail(releaseId)
+            break;
+        case 'delet':
+            deletDetail(releaseId)
+            break;
+    }
 }
 
 main();

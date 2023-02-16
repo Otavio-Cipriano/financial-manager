@@ -66,7 +66,7 @@
         </div>
       </div>
       <div class="mt-5">
-        <h3 class="mb-3">Lançamentos</h3>
+        <h3 class="mb-3" >Lançamentos</h3>
         <hr class="border border-2 border-secondary mt-0 mb-4" style="margin-top: -5px !important;">
         <div class="table-responsive">
           <table class="table table-light border border-2 table-hover table-sm">
